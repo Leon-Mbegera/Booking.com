@@ -14,15 +14,18 @@ import SignUp from './views/SignUp.vue';
     <div class="col col-2 border border-primary sidebar pt-5" style="min-height: 520px;">
       <ul class="nav d-flex flex-column">  
         <li class="nav-item text-light">
-          <a class="nav-link text-light fs-5 fw-semibold" href="#">Booking.com</a>
+          <router-link to="/" class="nav-link text-light fs-5 fw-semibold">
+            Booking.com
+          </router-link>
         </li>
         <li class="nav-item text-light">
-          <a class="nav-link text-light fs-5 fw-semibold" href="#">Appointments</a>
-        </li>
+          <router-link to="/myappointments" class="nav-link text-light fs-5 fw-semibold">
+            Appointments
+          </router-link>        </li>
       </ul>
     </div>
     <div class="col col-10 border border-secondary">
-      <!-- <router-view /> -->
+      <router-view />
     </div>
   </div>
 </template>
