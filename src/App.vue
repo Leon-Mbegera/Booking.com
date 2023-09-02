@@ -9,8 +9,8 @@ import SignUp from './views/SignUp.vue';
     <router-link to="/">Our Users</router-link>
     <router-link :to="{ name: 'SignUp' }">Create New User</router-link>
   </div> -->
-  <!-- <router-view /> -->
-  <SignUp />
+  <!-- <SignUp /> -->
+  <router-view />
 </template>
 
 <style scoped>

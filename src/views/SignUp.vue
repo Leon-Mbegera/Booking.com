@@ -4,15 +4,15 @@
             <div class="card-body">
                 <div class="form-group">
                     <label>Email address:</label>
-                    <input type="email" class="form-control form-control-solid" placeholder="Enter email" required/>
+                    <input type="email" class="form-control form-control-solid" placeholder="Enter email" v-model="email" required/>
                 </div>
                 <div class="form-group">
                     <label>Password:</label>
-                    <input type="password" class="form-control form-control-solid" placeholder="Enter password" required/>
+                    <input type="password" class="form-control form-control-solid" placeholder="Enter password" required v-model="password"/>
                 </div>
             </div>
             <div class="card-footer">
-                <button type="reset" class="btn btn-primary mr-2">Submit</button>
+                <button type="submit" class="btn btn-primary mr-2">Submit</button>
             </div>
         </div>
 </form>
@@ -20,13 +20,15 @@
 
 <script setup>
 import { ref } from 'vue';
-import { useRoute } from 'vue-router'
+import { useRouter } from 'vue-router'
 
 const email = ref('');
 const password = ref('');
+const router = useRouter();
 
 
 async function registerUser() {
+    console.log("stuck here >")
 
 if (!email.value || !password.value) return;
 
@@ -42,10 +44,10 @@ fetch(`https://reqres.in/api/login`, {
 })
     .then((response) => response.json())
     .then((data) => {
+        alert("you have signed in correctly");
         localStorage.setItem("SignedInToken", JSON.stringify(data.token));
-
+        console.log(localStorage.getItem('SignedInToken'))
+        router.push('/')
     })
 }
-
-
 </script>
