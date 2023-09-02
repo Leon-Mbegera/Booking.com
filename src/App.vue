@@ -21,7 +21,8 @@ import SignUp from './views/SignUp.vue';
         <li class="nav-item text-light">
           <router-link to="/myappointments" class="nav-link text-light fs-5 fw-semibold">
             Appointments
-          </router-link>        </li>
+          </router-link>
+        </li>
       </ul>
     </div>
     <div class="col col-10 border border-secondary">
