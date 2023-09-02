@@ -1,43 +1,35 @@
 <script setup>
-// import HelloWorld from './components/HelloWorld.vue'
-// import TheWelcome from './components/TheWelcome.vue'
 import SignUp from './views/SignUp.vue';
 </script>
 
 <template>
-  <!-- <div id="nav-header">
-    <router-link to="/">Our Users</router-link>
-    <router-link :to="{ name: 'SignUp' }">Create New User</router-link>
-  </div> -->
-  <!-- <SignUp /> -->
-  <router-view />
+  <div class="row border border-danger w-100">
+    <nav class="navbar bg-body-tertiary">
+      <div class="container-fluid">
+        <a class="navbar-brand text-dark fs-3 fw-bold" href="#">Mbegera Health Care</a>
+      </div>
+    </nav>
+  </div>
+  <div class="row border border-warning w-100">
+    <div class="col col-2 border border-primary sidebar pt-5" style="min-height: 520px;">
+      <ul class="nav d-flex flex-column">  
+        <li class="nav-item text-light">
+          <a class="nav-link text-light fs-5 fw-semibold" href="#">Booking.com</a>
+        </li>
+        <li class="nav-item text-light">
+          <a class="nav-link text-light fs-5 fw-semibold" href="#">Appointments</a>
+        </li>
+      </ul>
+    </div>
+    <div class="col col-10 border border-secondary">
+      <!-- <router-view /> -->
+    </div>
+  </div>
 </template>
 
 <style scoped>
-header {
-  line-height: 1.5;
-}
+ .sidebar {
+  background-color: #131313;
+ }
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-}
 </style>
