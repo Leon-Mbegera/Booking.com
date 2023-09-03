@@ -3,7 +3,7 @@
         <div class="scrollMain px-4">
             <div v-for="appointment in appointments" class="card col-5 px-2 w-100">
                 <div class="card-body">
-                    <h5 class="card-title">
+                    <h5 class="card-title mb-3">
                         Type of Appointment:
                         {{ appointment.type }}
                     </h5>
