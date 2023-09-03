@@ -1,6 +1,6 @@
 <template>
 <p class="fs-4 fw-bold">Book: {{ props.currentService?.type }}</p>
-<form @submit.prevent="sendData">
+<form @submit.prevent="$emit('submit', { typeInput, dateInput, startTime})">
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label fw-semibold">Type of Appointment</label>
                     <!-- <input type="text" :value="props.currentService?.type" readonly class="form-control" id="exampleInputEmail1" v-bind="typeInput"> -->
@@ -51,24 +51,5 @@ const booleanResult = computed(() => {
     if (props.currentService?.type === "Consultations") return true;
     return false;
 })
-
-const sendData = () => {
-    fetch("https://64f1fd910e1e60602d248792.mockapi.io/mbegera/healthcare/appointments", {
-    method: 'POST',
-    headers: {
-        'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-        type: typeInput.value,
-        date: dateInput.value,
-        startTime: startTime.value,
-        overdue: false
-    })
-})
-    .then(() => {
-        alert("ok");
-    })
-}
-
 
 </script>

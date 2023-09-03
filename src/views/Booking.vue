@@ -1,18 +1,18 @@
 <template>
     <DefaultLayoutVue>
-        <div class="d-flex justify-content-between">
+        <div class="cardGrid px-4">
             <div v-for="service in services" :key="service.type">
-                <AppointmentCard :service="service" @submit="onModalOpen"/>
+                <AppointmentCard :service="service" @submit="onModalOpen" />
             </div>
             <Teleport to="body">
             <!-- use the modal component, pass in the prop -->
-            <modal :show="showModal" @submit="onSubmit">
-                <Form :currentService="currentService" @close="onModalClose"></Form>
+            <modal :show="showModal" @close="onModalClose">
+                <Form :currentService="currentService" @close="onModalClose" @submit="onSubmit"></Form>
             </modal>
           </Teleport>
         </div>
     </DefaultLayoutVue>
-</template>
+</template>it
 
 <script setup>
 import AppointmentCard from '../components/AppointmentCard.vue';
@@ -25,9 +25,6 @@ import checkUpImg from '../assets/checkups.jpg'
 
 import { ref } from 'vue';
 
-const onSubmit = () => {
-   return;
-};
 
 const showModal = ref(false);
 const currentService = ref(null);
@@ -37,10 +34,6 @@ const onModalOpen = (service) => {
  showModal.value = true;
 }
 
-const onModalClose = () => {
- currentService.value = null;
- showModal.value = false;
-}
 
 const services = [
     {
@@ -54,4 +47,37 @@ const services = [
         buttonTitle: "Book a Check Up",
     }
 ]
+
+
+const onModalClose = () => {
+ currentService.value = null;
+ showModal.value = false;
+}
+
+const onSubmit = ({ typeInput, dateInput, startTime }) => {
+    fetch("https://64f1fd910e1e60602d248792.mockapi.io/mbegera/healthcare/appointments", {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+        type: typeInput,
+        date: dateInput,
+        startTime: startTime,
+        overdue: false
+    })
+})
+    .then(() => {
+        alert("ok");
+        onModalClose();
+    })
+}
 </script>
+
+<style scoped>
+    .cardGrid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-column-gap: 1rem;
+    }
+</style>
