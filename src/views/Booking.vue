@@ -2,39 +2,46 @@
     <DefaultLayoutVue>
         <div class="d-flex justify-content-between">
             <div v-for="service in services" :key="service.type">
-                <AppointmentCard :service="service" />
+                <AppointmentCard :service="service" @submit="onModalOpen"/>
             </div>
             <Teleport to="body">
             <!-- use the modal component, pass in the prop -->
-            <modal :show="showModal" @close="showModal = false" @submit="onSubmit">
-              <template #header>
-                <h3>custom header</h3>
-              </template>
+            <modal :show="showModal" @close="onModalClose" @submit="onSubmit">
+                <Form :currentService="currentService"></Form>
             </modal>
           </Teleport>
-          <button id="show-modal" @click="showModal = true">Show Modal</button>
         </div>
     </DefaultLayoutVue>
-
-
-
 </template>
 
 <script setup>
 import AppointmentCard from '../components/AppointmentCard.vue';
 import DefaultLayoutVue from '../components/layouts/DefaultLayout.vue';
 import Modal from '../components/Modal.vue';
+import Form from '../components/Form.vue';
 import consultationImg from '../assets/consultations.jpg'
 import checkUpImg from '../assets/checkups.jpg'
 
 
 import { ref } from 'vue';
 
-const onSubmit = () => {
+const onSubmit = (service) => {
   alert("ok");
 };
 
+
 const showModal = ref(false);
+const currentService = ref(null);
+
+const onModalOpen = (service) => {
+ currentService.value = service
+ showModal.value = true;
+}
+
+const onModalClose = () => {
+ currentService.value = null;
+ showModal.value = false;
+}
 
 const services = [
     {
