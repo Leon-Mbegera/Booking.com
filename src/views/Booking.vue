@@ -6,8 +6,8 @@
             </div>
             <Teleport to="body">
             <!-- use the modal component, pass in the prop -->
-            <modal :show="showModal" @close="onModalClose" @submit="onSubmit">
-                <Form :currentService="currentService"></Form>
+            <modal :show="showModal" @submit="onSubmit">
+                <Form :currentService="currentService" @close="onModalClose"></Form>
             </modal>
           </Teleport>
         </div>
@@ -25,10 +25,9 @@ import checkUpImg from '../assets/checkups.jpg'
 
 import { ref } from 'vue';
 
-const onSubmit = (service) => {
-  alert("ok");
+const onSubmit = () => {
+   return;
 };
-
 
 const showModal = ref(false);
 const currentService = ref(null);
