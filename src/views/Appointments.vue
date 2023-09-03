@@ -1,7 +1,7 @@
 <template>
     <DefaultLayout>
-        <div class="d-flex row justify-content-between p-2 scrollMain">
-            <div v-for="appointment in appointments" class="card col-5 px-2 mb-3">
+        <div class="scrollMain px-4">
+            <div v-for="appointment in appointments" class="card col-5 px-2 w-100">
                 <div class="card-body">
                     <h5 class="card-title">
                         Type of Appointment:
@@ -55,6 +55,12 @@ watchEffect(() => getData());
 
 <style scoped>
 .scrollMain {
-    overflow: auto;
+    overflow-y: auto;
+    height: 100%;
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
 }
 </style>
