@@ -26,10 +26,8 @@ const email = ref('');
 const password = ref('');
 const router = useRouter();
 
-
 async function registerUser() {
-    console.log("stuck here >")
-
+  
 if (!email.value || !password.value) return;
 
 fetch(`https://reqres.in/api/login`, {
