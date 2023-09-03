@@ -1,7 +1,4 @@
 <script setup>
-import SignUp from './views/SignUp.vue';
-import Navbar from './components/Navbar.vue';
-import Sidebar from './components/Sidebar.vue';
 </script>
 
 <template>
@@ -9,8 +6,4 @@ import Sidebar from './components/Sidebar.vue';
 </template>
 
 <style scoped>
- .sidebar {
-  background-color: #131313;
- }
-
-</style>
+ </style>
