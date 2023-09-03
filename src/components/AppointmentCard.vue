@@ -21,9 +21,13 @@ const emit = defineEmits(['submit']);
 
 <style scoped>
 
-.imageSize {
-    height: 200px;
-    width: 200px;
+/* .imageSize {
+    min-height: 100%;
+    min-width: 100%
 }
+
+.service-card {
+    height: calc(100% - 120px);
+} */
 
 </style>

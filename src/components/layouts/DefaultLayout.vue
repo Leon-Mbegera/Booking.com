@@ -5,18 +5,18 @@ import Sidebar from '../Sidebar.vue';
 
 <template>
   <Navbar />
-  <div class="row border border-warning w-100">
+  <div class="w-100 everyThingElse">
     <Sidebar />
-    <div class="col col-10 border border-secondary">
         <slot>
         </slot>
-    </div>
   </div>
 </template>
 
 <style scoped>
- .sidebar {
-  background-color: #131313;
+  .everyThingElse {
+    height: calc(100% - 80px);
+    display: grid;
+    grid-template-columns: 2fr 10fr;
  }
 
 </style>
