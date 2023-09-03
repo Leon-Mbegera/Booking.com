@@ -1,6 +1,9 @@
 <template>
-    <form class="form w-100" @submit.prevent="registerUser">
+    <form class="form w-50 mt-5 mx-auto" @submit.prevent="registerUser">
         <div class="card">
+            <div class="card-header">
+                <h3 class="fs-4 fw-semibold text-center">Please Sign to Continue!</h3>
+            </div>
             <div class="card-body">
                 <div class="form-group">
                     <label>Email address:</label>

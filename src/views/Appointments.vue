@@ -1,6 +1,6 @@
 <template>
     <DefaultLayout>
-        <div class="d-flex row justify-content-between p-2">
+        <div class="d-flex row justify-content-between p-2 scrollMain">
             <div v-for="appointment in appointments" class="card col-5 px-2 mb-3">
                 <div class="card-body">
                     <h5 class="card-title">
@@ -49,8 +49,12 @@ const CancelAppointment = async (id) => {
         })
 }
 
-
 watchEffect(() => getData());
 
- 
 </script>
+
+<style scoped>
+.scrollMain {
+    overflow: auto;
+}
+</style>
