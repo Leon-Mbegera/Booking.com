@@ -23,7 +23,12 @@ const routes = [
         path: "/signup",
         name: "SignUp",
         component: SignUp
-    },   
+    },
+    {
+        path: "/:notfound",
+        component: SignUp,
+        beforeEnter: checkForAuthToken
+    }
 ]
 
 const router = createRouter({
