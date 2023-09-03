@@ -44,7 +44,6 @@ fetch(`https://reqres.in/api/login`, {
 })
     .then((response) => response.json())
     .then((data) => {
-        alert("you have signed in correctly");
         localStorage.setItem("SignedInToken", JSON.stringify(data.token));
         console.log(localStorage.getItem('SignedInToken'))
         router.push('/')
